@@ -77,7 +77,7 @@ fis.media('prod')
                 'src/app.js:deps',
                 'src/app.js'
             ],
-            'pkg/allStyle.css': [
+            'pkg/style.css': [
                 'src/app.js:deps',
                 'src/app.js:asyncs',
                 'src/app.js'
