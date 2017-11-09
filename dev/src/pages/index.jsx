@@ -87,7 +87,7 @@ class Index extends Component{
         let {MenuMap} = this.state;
         return (
             <div class="content-wrapper">
-                <Menu style={{width:300}} head={<div><span className="menu-head">招聘职位</span><a className="menu-button" onClick={()=>{this.clearChecked()}}>清空</a></div>}>
+                <Menu style={{width:340}} head={<div><span className="menu-head">招聘职位</span><a className="menu-button" onClick={()=>{this.clearChecked()}}>清空</a></div>}>
                     {MenuMap.map((i) =>{
                         let {sub,title,id,checked,count} = i;
                         let subId = id;
