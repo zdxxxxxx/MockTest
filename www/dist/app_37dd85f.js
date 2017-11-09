@@ -1,0 +1,1 @@
+define("src/app",function(e){"use strict";function t(e){return e&&e.__esModule?e:{"default":e}}var d=e("node_modules/react/react"),n=t(d),l=e("node_modules/react-dom/index"),r=t(l);r.default.render(n.default.createElement("h1",null," Hello, world! "),document.getElementById("app"))});
