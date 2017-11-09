@@ -1,6 +1,6 @@
 # MockTest
 nav tree
 
-cd dev & npm install 
+cd dev && npm install 
 
 npm run server
