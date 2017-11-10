@@ -4,7 +4,7 @@
     "description": "fast develop",
     "main": "index.js",
     "scripts": {
-        "build": "rm -rf ../www && fis3 release prod -d ../",
+        "build": "rm -rf ../www && fis3 release pub -d ../",
         "watch": "fis3 release prod -d ../ -w",
         "server": "fis3 server start && fis3 release prod -wL "
     },
@@ -13,6 +13,7 @@
         "babel-preset-stage-0": "^6.24.1",
         "buffer": "^5.0.6",
         "classnames": "^2.2.3",
+        "fis3-hook-relative": "^2.0.1",
         "is-buffer": "^1.1.5",
         "less": "^2.7.1",
         "min-document": "^2.19.0",

@@ -1,0 +1,1 @@
+define("src/app",function(e){"use strict";function t(e){return e&&e.__esModule?e:{"default":e}}{var d=e("node_modules/react/react"),n=t(d),u=e("node_modules/react-dom/index"),a=t(u),r=e("src/pages/index.jsx"),l=t(r),c="";t(c)}a.default.render(n.default.createElement(l.default,null),document.getElementById("app"))});

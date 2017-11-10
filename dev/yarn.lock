@@ -1062,6 +1062,10 @@ fis3-hook-node_modules@^2.2.8:
   dependencies:
     semver "^5.1.0"
 
+fis3-hook-relative@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/fis3-hook-relative/-/fis3-hook-relative-2.0.1.tgz#8f03d95369db95fb7769346d717b6b8a821f190a"
+
 fis3-packager-deps-pack@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/fis3-packager-deps-pack/-/fis3-packager-deps-pack-0.1.2.tgz#f0c11d74af622bdac1a015a3daa37e8072353dac"

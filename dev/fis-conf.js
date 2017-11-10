@@ -1,7 +1,6 @@
 var preset2015 = require('babel-preset-es2015');
 var presetstage3 = require('babel-preset-stage-3');
 var react = require('babel-preset-react');
-var mulitImport = require('babel-plugin-import');
 
 fis.set('project.files', '/index.html'); // 按需编译。
 // 改用 npm 方案，而不是用 fis-components
@@ -12,7 +11,7 @@ fis.hook('commonjs', {
     extList: ['.js', '.jsx', '.less', '.css']
 });
 fis.hook('node_modules');
-
+fis.hook('relative');
 // 设置成是模块化 js
 fis.match('/{node_modules,src}/**.{js,jsx}', {
     isMod: true,
@@ -53,7 +52,7 @@ fis.match('*.{js,jsx}', {
 // 请用 fis3 release production 来启用。
 fis.media('prod')
     .match('(**/*.*)', {
-        release: '/www/$1'
+        release: '/www/$1',
     })
     .match('src/(**.*)', {
         release: '/www/dist/$1'
@@ -69,6 +68,43 @@ fis.media('prod')
     .match('*.{css,less}', {
         optimizer: fis.plugin('clean-css'),
         useHash: true
+    })
+    .match('::package', {
+        // 更多用法请参考： https://github.com/fex-team/fis3-packager-deps-pack
+        packager: fis.plugin('deps-pack', {
+            'pkg/index.js': [
+                'src/app.js:deps',
+                'src/app.js'
+            ],
+            'pkg/style.css': [
+                'src/app.js:deps',
+                'src/app.js:asyncs',
+                'src/app.js'
+            ]
+        })
+    });
+
+
+// 请用 fis3 release production 来启用。
+fis.media('pub')
+    .match('(**/*.*)', {
+        release: '/www/$1',
+        relative: true
+    })
+    .match('src/(**.*)', {
+        release: '/www/dist/$1',relative: true
+    })
+    .match('node_modules/(**.*)', {
+        release: '/www/widget/$1',relative: true
+    })
+    // 对 js 做 uglify 压缩。
+    .match('*.{js,jsx}', {
+        optimizer: fis.plugin('uglify-js'),
+        useHash: true,relative: true
+    })
+    .match('*.{css,less}', {
+        optimizer: fis.plugin('clean-css'),
+        useHash: true,relative: true
     })
     .match('::package', {
         // 更多用法请参考： https://github.com/fex-team/fis3-packager-deps-pack
